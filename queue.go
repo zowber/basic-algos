@@ -1,8 +1,7 @@
 package main
 
-import "fmt"
-
 // head -> A -> B -> C -> tail
+// push to tail pop from head (FIFO)
 
 type node struct { // private
 	next  *node
@@ -18,8 +17,6 @@ type Queue struct {
 func (q *Queue) Enqueue(value int) {
 	node := node{value: value, next: nil}
 
-	q.length = q.length + 1
-
 	if q.tail == nil {
 		q.head = &node
 		q.tail = &node
@@ -28,6 +25,7 @@ func (q *Queue) Enqueue(value int) {
 	q.tail.next = &node
 	q.tail = q.tail.next
 
+	q.length = q.length + 1
 }
 
 func (q *Queue) Dequeue() (int, bool) {
@@ -42,7 +40,6 @@ func (q *Queue) Dequeue() (int, bool) {
 
 	q.length = q.length - 1
 
-	fmt.Println(q.length, val)
 	return val, true
 
 }

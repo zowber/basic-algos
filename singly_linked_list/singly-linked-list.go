@@ -1,21 +1,20 @@
-package main
+package singly_linked_list
 
 import "fmt"
 
-// singly linked list
-type nodeSl struct {
+type node struct {
 	value int
-	next  *nodeSl
+	next  *node
 }
 
-type ListSl struct {
-	head   *nodeSl
+type List struct {
+	head   *node
 	length int
 }
 
-func (sll *ListSl) Insert(value int) {
+func (sll *List) Insert(value int) {
 
-	node := nodeSl{}
+	node := node{}
 	node.value = value
 
 	if sll.head == nil {
@@ -38,15 +37,15 @@ func (sll *ListSl) Insert(value int) {
 
 }
 
-func (sll *ListSl) InsertAt(idx int, val int) {
+func (sll *List) InsertAt(idx int, val int) {
 
 	// node to insert (z)
-	var z nodeSl
+	var z node
 	z.value = val
 
 	cursor := sll.head
-	var a *nodeSl
-	var b *nodeSl
+	var a *node
+	var b *node
 	for i := 0; i < sll.length; i++ {
 		if i == idx-1 {
 			// get previous node (a)
@@ -69,7 +68,7 @@ func (sll *ListSl) InsertAt(idx int, val int) {
 	sll.length++
 }
 
-func (sll *ListSl) DeleteSl() {
+func (sll *List) DeleteSl() {
 	// walk to node to delete (b)
 	// get previous node (a)
 	// get next node (c) (could be nil if b is at tail)
@@ -79,28 +78,10 @@ func (sll *ListSl) DeleteSl() {
 	// set (b) to nil
 }
 
-func (sll *ListSl) Walk() {
+func (sll *List) Walk() {
 	cursor := sll.head
 	for i := 0; i < sll.length; i++ {
 		fmt.Println(cursor.value)
 		cursor = cursor.next
 	}
 }
-
-// doubly linked list
-// type NodeDl struct {
-// 	value int
-// 	next  *NodeDl
-// 	prev  *NodeDl
-// }
-
-// type ListDl struct {
-// }
-
-// func (dll *ListDl) InsertDl() {
-
-// }
-
-// func (dll *ListDl) DeleteDl() {
-
-// }

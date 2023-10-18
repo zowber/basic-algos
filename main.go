@@ -2,6 +2,20 @@ package main
 
 func main() {
 
+	// Two Crystal Balls
+	var floors []bool
+
+	for i := 0; i < 69420; i++ {
+		if i < 42069 {
+			floors = append(floors, false)
+		} else {
+			floors = append(floors, true)
+		}
+	}
+
+	// expect 256
+	Two_Crystal_Balls(floors)
+
 	// Stack
 
 	// Queue
@@ -25,18 +39,13 @@ func main() {
 	// fmt.Println(res)
 
 	// Singly linked list
-
-	l := new(ListSl)
-
-	for i := 0; i < 10; i++ {
-		l.Insert(i)
-	}
-
+	// l := singly_linked_list.List{}
+	// for i := 0; i < 10; i++ {
+	// 	l.Insert(i)
+	// }
+	// // l.Walk()
+	// l.InsertAt(5, 20)
 	// l.Walk()
-
-	l.InsertAt(5, 20)
-
-	l.Walk()
 
 	// Binary search
 	// arr := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}

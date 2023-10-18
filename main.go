@@ -1,22 +1,38 @@
 package main
 
+import (
+	"fmt"
+)
+
 func main() {
 
 	// Two Crystal Balls
-	var floors []bool
+	// var floors []bool
 
-	for i := 0; i < 69420; i++ {
-		if i < 42069 {
-			floors = append(floors, false)
-		} else {
-			floors = append(floors, true)
-		}
-	}
-
+	// for i := 0; i < 69420; i++ {
+	// 	if i < 42069 {
+	// 		floors = append(floors, false)
+	// 	} else {
+	// 		floors = append(floors, true)
+	// 	}
+	// }
 	// expect 256
-	Two_Crystal_Balls(floors)
+	// Two_Crystal_Balls(floors)
 
 	// Stack
+	s := new(Stack)
+	// push 10 million nodes
+	for i := 0; i < 10_000_000; i++ {
+		s.Push(i + 1)
+	}
+	// pop 10 million nodes
+	for j := 0; j < 10_000_000; j++ {
+		val := s.Pop()
+		// Print val of every millionth pop
+		if j%1_000_000 == 0 {
+			fmt.Println("Popped value:", val)
+		}
+	}
 
 	// Queue
 	// q := new(Queue)

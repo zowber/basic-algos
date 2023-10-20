@@ -1,4 +1,4 @@
-package main
+package linear_search
 
 func Linear_Search(arr []int, target int) bool {
 

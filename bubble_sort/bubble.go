@@ -1,4 +1,4 @@
-package main
+package bubble_sort
 
 func Bubble_Sort(arr []int) []int {
 	for i := 0; i < (len(arr)); i++ {

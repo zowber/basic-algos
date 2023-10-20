@@ -1,4 +1,4 @@
-package main
+package queue
 
 // head -> A -> B -> C -> tail
 // push to tail pop from head (FIFO)

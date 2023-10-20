@@ -1,4 +1,4 @@
-package main
+package stack
 
 // A backwards queue
 // A <- B <- C <- head

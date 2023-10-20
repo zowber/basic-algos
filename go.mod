@@ -1,3 +1,3 @@
-module github.com/zowber/basic-algos
+module basic-algos
 
 go 1.21.3

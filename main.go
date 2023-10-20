@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"basic-algos/bubble_sort"
 )
 
 func main() {
@@ -20,19 +20,19 @@ func main() {
 	// Two_Crystal_Balls(floors)
 
 	// Stack
-	s := new(Stack)
-	// push 10 million nodes
-	for i := 0; i < 10_000_000; i++ {
-		s.Push(i + 1)
-	}
-	// pop 10 million nodes
-	for j := 0; j < 10_000_000; j++ {
-		val := s.Pop()
-		// Print val of every millionth pop
-		if j%1_000_000 == 0 {
-			fmt.Println("Popped value:", val)
-		}
-	}
+	// s := new(stack.Stack)
+	// // push 10 million nodes
+	// for i := 0; i < 10_000_000; i++ {
+	// 	s.Push(i + 1)
+	// }
+	// // pop 10 million nodes
+	// for j := 0; j < 10_000_000; j++ {
+	// 	val := s.Pop()
+	// 	// Print val of every millionth pop
+	// 	if j%1_000_000 == 0 {
+	// 		fmt.Println("Popped value:", val)
+	// 	}
+	// }
 
 	// Queue
 	// q := new(Queue)
@@ -46,13 +46,7 @@ func main() {
 	// q.Dequeue()
 
 	// Bubble sort
-	// Create an array of 500 random integers
-	// arr := make([]int, 100)
-	// for i := range arr {
-	// 	arr[i] = rand.Intn(1000000)
-	// }
-	// res := Bubble_Sort(arr)
-	// fmt.Println(res)
+	bubble_sort.Test()
 
 	// Singly linked list
 	// l := singly_linked_list.List{}

@@ -34,14 +34,12 @@ func (sll *List) Insert(value int) {
 			cursor = cursor.next
 		}
 	}
-
 }
 
 func (sll *List) InsertAt(idx int, val int) {
 
 	// node to insert (z)
-	var z node
-	z.value = val
+	z := node{value: val}
 
 	cursor := sll.head
 	var a *node

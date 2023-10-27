@@ -1,10 +1,21 @@
 package main
 
 import (
-	"basic-algos/bubble_sort"
+	"basic-algos/doublyLinkedList"
+	"fmt"
 )
 
 func main() {
+
+	list := new(doublyLinkedList.List)
+
+	// append 100 vals
+	for i := 0; i < 100; i++ {
+		list.Append(i)
+	}
+	fmt.Println("get 0", list.Get(0))
+	fmt.Println("get 1", list.Get(1))
+	fmt.Println("get 1", list.Get(100))
 
 	// Two Crystal Balls
 	// var floors []bool
@@ -46,7 +57,7 @@ func main() {
 	// q.Dequeue()
 
 	// Bubble sort
-	bubble_sort.Test()
+	// bubble_sort.Test()
 
 	// Singly linked list
 	// l := singly_linked_list.List{}

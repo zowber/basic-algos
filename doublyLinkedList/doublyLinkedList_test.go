@@ -68,6 +68,7 @@ func TestDoublyLinkedListInsertAt(t *testing.T) {
 		if got != c.want {
 			t.Errorf("InsertAt(%d) == %d, want %d", c.in, got, c.want)
 		}
+		fmt.Printf("InsertAt(%d) == %d, want %d\n", c.in, got, c.want)
 	}
 }
 

@@ -34,12 +34,14 @@ func (l *List) InsertAt(idx int, val int) {
 	}
 	// 1. point new node next to target
 	// 2. point new node prev to target prev
-	// 3. point target prev to new node
-	// 4. point prev node next to new node
+	// 3. point prev node next to new node
+	// 4. point target prev to new node
 	z.next = cursor
 	z.prev = cursor.prev
+	if cursor.prev != nil {
+		cursor.prev.next = &z
+	}
 	cursor.prev = &z
-	cursor.prev.next = &z
 }
 
 func (l *List) Remove(val int) {

@@ -1,4 +1,4 @@
-package main
+package crystalballs
 
 import (
 	"log"

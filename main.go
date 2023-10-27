@@ -1,13 +1,13 @@
 package main
 
 import (
-	"basic-algos/doublyLinkedList"
+	"basic-algos/doublylinkedlist"
 	"fmt"
 )
 
 func main() {
 
-	list := new(doublyLinkedList.List)
+	list := new(doublylinkedlist.List)
 
 	// append 100_000 vals
 	for i := 0; i < 100_000; i++ {

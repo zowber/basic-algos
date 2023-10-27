@@ -13,7 +13,6 @@ type List struct {
 }
 
 func (l *List) InsertAt(idx int, val int) {
-
 	l.length++
 	if idx > l.length {
 		return
@@ -44,12 +43,23 @@ func (l *List) InsertAt(idx int, val int) {
 	cursor.prev = &z
 }
 
-func (l *List) Remove(val int) {
-
-}
-
 func (l *List) RemoveAt(idx int) {
+	if idx > l.length {
+		return
+	}
 
+	// if statements for removing at head or tail
+	// and if list only has one node, etc
+
+	cursor := l.head
+	for i := 0; i < idx; i++ {
+		cursor = cursor.next
+	}
+	// A <-> B <-> C
+	// remove at B
+	cursor.prev.next = cursor.next
+	cursor.next.prev = cursor.prev
+	l.length--
 }
 
 func (l *List) Prepend(val int) {
@@ -78,7 +88,7 @@ func (l *List) Append(val int) {
 	l.tail = &z
 }
 
-func (l *List) Get(idx int) int {
+func (l *List) GetAt(idx int) int {
 	if idx > l.length {
 		return -1
 	}

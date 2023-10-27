@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestDoublyLinkedListPrepend(t *testing.T) {
+func TestPrepend(t *testing.T) {
 	cases := []struct {
 		in   int
 		want int
@@ -27,7 +27,7 @@ func TestDoublyLinkedListPrepend(t *testing.T) {
 	}
 }
 
-func TestDoublyLinkedListAppend(t *testing.T) {
+func TestAppend(t *testing.T) {
 	cases := []struct {
 		in   int
 		want int
@@ -49,7 +49,7 @@ func TestDoublyLinkedListAppend(t *testing.T) {
 	}
 }
 
-func TestDoublyLinkedListInsertAt(t *testing.T) {
+func TestInsertAt(t *testing.T) {
 	cases := []struct {
 		in   int
 		want int
@@ -64,7 +64,7 @@ func TestDoublyLinkedListInsertAt(t *testing.T) {
 	}
 	for _, c := range cases {
 		list.InsertAt(c.in, c.want)
-		got := list.Get(69)
+		got := list.GetAt(69)
 		if got != c.want {
 			t.Errorf("InsertAt(%d) == %d, want %d", c.in, got, c.want)
 		}
@@ -72,7 +72,7 @@ func TestDoublyLinkedListInsertAt(t *testing.T) {
 	}
 }
 
-func TestDoublyLinkedListGet(t *testing.T) {
+func TestGet(t *testing.T) {
 	cases := []struct {
 		in   int
 		want int
@@ -86,10 +86,33 @@ func TestDoublyLinkedListGet(t *testing.T) {
 		list.Append(i)
 	}
 	for _, c := range cases {
-		got := list.Get(69)
+		got := list.GetAt(69)
 		if got != c.want {
 			t.Errorf("Get(%d) == %d, want %d", c.in, got, c.want)
 		}
 		fmt.Printf("Get(%d) == %d, want %d\n", c.in, got, c.want)
+	}
+}
+
+func TestRemoveAt(t *testing.T) {
+	cases := []struct {
+		in   int
+		want int
+	}{
+		{69, 70},
+	}
+	// create a list
+	list := List{}
+	// insert 100 nodes
+	for i := 0; i < 100; i++ {
+		list.Append(i)
+	}
+	for _, c := range cases {
+		list.RemoveAt(69)
+		got := list.GetAt(c.in)
+		if got != c.want {
+			t.Errorf("RemoveAt(%d), then Get(%d) == %d, want %d\n", c.in, c.in, got, c.want)
+		}
+		fmt.Printf("RemoveAt(%d), then Get(%d) == %d, want %d\n", c.in, c.in, got, c.want)
 	}
 }

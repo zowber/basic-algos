@@ -9,13 +9,17 @@ func main() {
 
 	list := new(doublyLinkedList.List)
 
-	// append 100 vals
-	for i := 0; i < 100; i++ {
+	// append 100_000 vals
+	for i := 0; i < 100_000; i++ {
 		list.Append(i)
 	}
-	fmt.Println("get 0", list.Get(0))
-	fmt.Println("get 1", list.Get(1))
-	fmt.Println("get 1", list.Get(100))
+	fmt.Println(list.GetAt(68999))
+	fmt.Println(list.GetAt(69000))
+	fmt.Println(list.GetAt(69001))
+	list.RemoveAt(69000)
+	fmt.Println(list.GetAt(68999))
+	fmt.Println(list.GetAt(69000))
+	fmt.Println(list.GetAt(69001))
 
 	// Two Crystal Balls
 	// var floors []bool

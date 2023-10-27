@@ -12,39 +12,31 @@ type List struct {
 	length int
 }
 
-func (sll *List) Insert(value int) {
-
+func (l *List) Insert(value int) {
 	node := node{}
 	node.value = value
-
-	if sll.head == nil {
-		sll.head = &node
-		sll.length++
+	l.length++
+	if l.head == nil {
+		l.head = &node
 		return
 	}
-
-	if sll.head != nil {
-		var cursor = sll.head
-		for i := 0; i < sll.length; i++ {
-			if cursor.next == nil { // reached end of list
-				cursor.next = &node
-				sll.length++
-				return
-			}
-			cursor = cursor.next
+	var cursor = l.head
+	for i := 0; i < l.length; i++ {
+		if cursor.next == nil { // reached end of list
+			cursor.next = &node
+			return
 		}
+		cursor = cursor.next
 	}
 }
 
-func (sll *List) InsertAt(idx int, val int) {
-
+func (l *List) InsertAt(idx int, val int) {
 	// node to insert (z)
 	z := node{value: val}
-
-	cursor := sll.head
+	cursor := l.head
 	var a *node
 	var b *node
-	for i := 0; i < sll.length; i++ {
+	for i := 0; i < l.length; i++ {
 		if i == idx-1 {
 			// get previous node (a)
 			a = cursor
@@ -56,17 +48,15 @@ func (sll *List) InsertAt(idx int, val int) {
 		}
 		cursor = cursor.next
 	}
-
 	// update nexts
 	// point new node to next node
 	z.next = b
 	// point previous node to new node
 	a.next = &z
-
-	sll.length++
+	l.length++
 }
 
-func (sll *List) DeleteSl() {
+func (l *List) DeleteAt(idx int) {
 	// walk to node to delete (b)
 	// get previous node (a)
 	// get next node (c) (could be nil if b is at tail)
@@ -76,9 +66,9 @@ func (sll *List) DeleteSl() {
 	// set (b) to nil
 }
 
-func (sll *List) Walk() {
-	cursor := sll.head
-	for i := 0; i < sll.length; i++ {
+func (l *List) Walk() {
+	cursor := l.head
+	for i := 0; i < l.length; i++ {
 		fmt.Println(cursor.value)
 		cursor = cursor.next
 	}

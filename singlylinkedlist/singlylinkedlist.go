@@ -34,8 +34,7 @@ func (l *List) InsertAt(idx int, val int) {
 	// node to insert (z)
 	z := node{value: val}
 	cursor := l.head
-	var a *node
-	var b *node
+	var a, b *node
 	for i := 0; i < l.length; i++ {
 		if i == idx-1 {
 			// get previous node (a)
@@ -56,14 +55,37 @@ func (l *List) InsertAt(idx int, val int) {
 	l.length++
 }
 
+func (l *List) GetAt(idx int) int {
+	cursor := l.head
+	for i := 0; i < idx; i++ {
+		cursor = cursor.next
+	}
+	return cursor.value
+}
+
 func (l *List) DeleteAt(idx int) {
 	// walk to node to delete (b)
-	// get previous node (a)
-	// get next node (c) (could be nil if b is at tail)
-	// update nexts and destroy (b) ??will the go just GC b after it's removed from the list??
-	// (a).next points to (c)
-	//     or tail
-	// set (b) to nil
+	cursor := l.head
+	var a, b, c *node
+	for i := 0; i < idx; i++ {
+		// get prev node (a)
+		if i == idx-2 {
+			a = cursor
+		}
+		// get next node (c) (could be nil if b is at tail)
+		if i == idx-1 {
+			b = cursor
+			c = cursor.next
+		}
+		cursor = cursor.next
+	}
+	// update nexts and destroy (b)
+	// (a).next points to (c) or tail
+	a.next = c
+	// destroy (b)
+	b.next = nil
+	b = nil
+	l.length--
 }
 
 func (l *List) Walk() {
